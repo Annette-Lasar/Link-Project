@@ -1,0 +1,30 @@
+@if(mainContentJSON) {
+<h1>
+  {{ mainContentJSON.title }}
+</h1>
+<p class="subtitle">Link hartgecodet:</p>
+<p class="text">
+  Willkommen Gartenfreunde - Hier findet ihr wertvolle Tipps zum Gärtnern - von
+  blühenden Beeten bis hin zu köstlichen
+  <a routerLink="vegetables">Gemüsegärten</a>!
+</p>
+<p class="disadvantages">
+  Nachteil: Text kann nicht dynamisch, z.B. über eine API, eingefügt werden.
+</p>
+<p class="subtitle">Link mit innerHTML und einer Pipe eingefügt:</p>
+<p
+  [innerHTML]="mainContentJSON.introduction | linkify:{ 'Gemüsegärten': '/vegetables', }"
+  class="text"
+></p>
+<p class="disadvantages">
+  Nachteil: Link wird mit href eingefügt, was jedesmal zum Neuladen der Seite
+  führt.
+</p>
+
+<p class="subtitle">Link mit Renderer2 eingefügt:</p>
+<p class="dynamic-content text"></p>
+<p class="advantages">
+  Vorteil: Link wird mit router.navigate() eingefügt, sodass die Seite nicht neu
+  geladen werden muss.
+</p>
+}
